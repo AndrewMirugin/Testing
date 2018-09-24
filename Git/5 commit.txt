@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 Some changes
+=======
+Another text
+>>>>>>> develop
