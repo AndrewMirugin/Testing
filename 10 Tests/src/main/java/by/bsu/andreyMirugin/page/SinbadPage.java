@@ -1,4 +1,4 @@
-package page;
+package by.bsu.andreyMirugin.page;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
@@ -6,8 +6,6 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.security.Key;
-import java.time.Duration;
 import java.util.List;
 
 public class SinbadPage {
@@ -60,7 +58,7 @@ public class SinbadPage {
         WebElement button = driver.findElement(By.xpath("//span[@id='titleSelectBoxIt']"));
         wait.until(ExpectedConditions.elementToBeClickable(button)).click();
         if (number>=0){
-            for(int i=0;i<number+1;i++){
+            for(int i=0;i<number;i++){
                 button.sendKeys(Keys.ARROW_DOWN);
             }
         }
@@ -76,7 +74,7 @@ public class SinbadPage {
         WebElement button = driver.findElement(By.xpath("//span[@id='genboxSelectBoxIt']"));
         wait.until(ExpectedConditions.elementToBeClickable(button)).click();
         if (number>=0){
-            for(int i=0;i<number+1;i++){
+            for(int i=0;i<number;i++){
                 button.sendKeys(Keys.ARROW_DOWN);
             }
         }
@@ -103,7 +101,7 @@ public class SinbadPage {
         clickOnSubmit();
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", errorMessage);
         try {
-            Thread.sleep(500);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -145,7 +143,7 @@ public class SinbadPage {
         clickOnGender(1);
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", errorMessage);
         try {
-            Thread.sleep(500);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

@@ -1,14 +1,13 @@
-package testOmanAir;
+package by.bsu.andreyMirugin.testOmanAir;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.*;
-import page.HomePage;
-import page.SinbadPage;
+import by.bsu.andreyMirugin.page.HomePage;
+import by.bsu.andreyMirugin.page.SinbadPage;
 
 public class OmanAir {
     private WebDriver driver;
@@ -17,7 +16,7 @@ public class OmanAir {
 
     @BeforeSuite
     public void start() {
-        System.setProperty("webdriver.chrome.driver","source\\chromedriver_win32\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver","src\\test\\resources\\chromedriver.exe");
         driver = new ChromeDriver();
         homePage = new HomePage(driver);
         sinbadPage = new SinbadPage(driver);
@@ -89,6 +88,6 @@ public class OmanAir {
 
     @AfterSuite
     public void finish(){
-        driver.close();
+        //driver.close();
     }
 }

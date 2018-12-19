@@ -1,11 +1,9 @@
-package page;
+package by.bsu.andreyMirugin.page;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import javax.annotation.Nullable;
-import java.security.Key;
 import java.util.List;
 
 public class HomePage {
