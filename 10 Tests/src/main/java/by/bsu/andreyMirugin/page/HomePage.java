@@ -1,5 +1,6 @@
 package by.bsu.andreyMirugin.page;
 
+import driver.Driver;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -29,8 +30,8 @@ public class HomePage {
 
     private WebDriver driver;
 
-    public HomePage(WebDriver driver){
-        this.driver = driver;
+    public HomePage(){
+        this.driver = Driver.getDriver();
         PageFactory.initElements(driver,this);
     }
 

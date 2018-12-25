@@ -2,6 +2,7 @@ package by.bsu.andreyMirugin.steps;
 
 import by.bsu.andreyMirugin.elems.SinbadElems;
 import by.bsu.andreyMirugin.page.SinbadPage;
+import driver.Driver;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -13,8 +14,8 @@ public class SinbadSteps {
     private SinbadElems sinbadElems;
 
 
-    public SinbadSteps(WebDriver driver, SinbadElems sinbadElems, SinbadPage sinbadPage) {
-        this.driver = driver;
+    public SinbadSteps(SinbadElems sinbadElems, SinbadPage sinbadPage) {
+        this.driver = Driver.getDriver();
         this.sinbadElems = sinbadElems;
         this.sinbadPage = sinbadPage;
         PageFactory.initElements(driver,this);

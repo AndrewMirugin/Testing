@@ -1,5 +1,6 @@
 package by.bsu.andreyMirugin.elems;
 
+import driver.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -36,8 +37,8 @@ public class SinbadElems {
     private WebDriver driver;
 
 
-    public SinbadElems(WebDriver driver) {
-        this.driver = driver;
+    public SinbadElems() {
+        this.driver = Driver.getDriver();
         PageFactory.initElements(driver,this);
     }
 

@@ -2,6 +2,7 @@ package by.bsu.andreyMirugin;
 
 import by.bsu.andreyMirugin.elems.SinbadElems;
 import by.bsu.andreyMirugin.steps.SinbadSteps;
+import driver.Driver;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -14,7 +15,6 @@ import by.bsu.andreyMirugin.page.SinbadPage;
 
 public class TestOmanAir {
     private WebDriverWait wait;
-    private WebDriver driver;
     private HomePage homePage;
     private SinbadPage sinbadPage;
     private SinbadElems sinbadElems;
@@ -22,24 +22,22 @@ public class TestOmanAir {
 
     @BeforeSuite
     public void start() {
-        System.setProperty("webdriver.chrome.driver","src\\test\\resources\\chromedriver.exe");
-        driver = new ChromeDriver();
-        homePage = new HomePage(driver);
-        wait = new WebDriverWait(driver,60);
-        sinbadPage = new SinbadPage(driver);
-        sinbadElems = new SinbadElems(driver);
-        sinbadSteps = new SinbadSteps(driver,sinbadElems,sinbadPage);
+        homePage = new HomePage();
+        wait = new WebDriverWait(Driver.getDriver(),60);
+        sinbadPage = new SinbadPage();
+        sinbadElems = new SinbadElems();
+        sinbadSteps = new SinbadSteps(sinbadElems,sinbadPage);
     }
 
     @BeforeGroups(groups = "mainPage")
     public void startGroupMainPage(){
-        driver.navigate().to("https://www.omanair.com/");
+        Driver.getDriver().navigate().to("https://www.omanair.com/");
     }
 
     @BeforeGroups(groups = "sinbadPage",dependsOnGroups = "mainPage")
     public void goToSinbadPage(){
-        driver.navigate().to("https://sindbad.omanair.com/SindbadProd/enroll/joinNow");
-        WebDriverWait wait = new WebDriverWait(driver,60);
+        Driver.getDriver().navigate().to("https://sindbad.omanair.com/SindbadProd/enroll/joinNow");
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(),60);
         wait.until(driver1 -> String
                 .valueOf(((JavascriptExecutor) driver1).executeScript("return document.readyState"))
                 .equals("complete"));
@@ -47,7 +45,7 @@ public class TestOmanAir {
 
     @AfterSuite
     public void finish(){
-        driver.close();
+        Driver.getDriver().close();
     }
 
     @Test(groups = "mainPage")

@@ -1,6 +1,7 @@
 package by.bsu.andreyMirugin.page;
 
 import by.bsu.andreyMirugin.elems.SinbadElems;
+import driver.Driver;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -16,10 +17,10 @@ public class SinbadPage {
     private SinbadElems sinbadElems;
 
 
-    public SinbadPage(WebDriver driver){
-        this.driver = driver;
-        this.wait = new WebDriverWait(this.driver,60);
-        this.sinbadElems = new SinbadElems(driver);
+    public SinbadPage(){
+        driver = Driver.getDriver();
+        this.wait = new WebDriverWait(driver,60);
+        this.sinbadElems = new SinbadElems();
         PageFactory.initElements(driver,this);
     }
 
